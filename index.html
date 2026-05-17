@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GWLADYS BOEMA | English Courses</title>
+
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #f7f9fc;
+      color: #1f2937;
+      line-height: 1.7;
+    }
+
+    header {
+      background: #102542;
+      padding: 20px 8%;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .logo {
+      color: white;
+      font-size: 1.7rem;
+      font-weight: bold;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffd166;
+    }
+
+    .lang-switch {
+      display: flex;
+      gap: 10px;
+    }
+
+    .lang-switch button {
+      border: none;
+      padding: 10px 15px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      background: white;
+      color: #102542;
+    }
+
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(to right, #102542, #1f3b5b);
+      color: white;
+      display: flex;
+      align-items: center;
+      padding: 80px 10%;
+    }
+
+    .hero-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: 3.3rem;
+      line-height: 1.2;
+      margin-bottom: 25px;
+    }
+
+    .hero-text p {
+      font-size: 1.15rem;
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 15px 28px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+      margin-top: 10px;
+    }
+
+    .btn-primary {
+      background: #ffd166;
+      color: #102542;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-4px);
+    }
+
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .quick-links a {
+      background: white;
+      color: #102542;
+      padding: 12px 18px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 90px 10%;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2.7rem;
+      margin-bottom: 50px;
+      color: #102542;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: white;
+      padding: 35px;
+      border-radius: 22px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-7px);
+    }
+
+    .card h3 {
+      margin-bottom: 18px;
+      color: #102542;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .price-box {
+      max-width: 750px;
+      margin: auto;
+      background: #102542;
+      color: white;
+      padding: 50px;
+      border-radius: 25px;
+      text-align: center;
+    }
+
+    .price {
+      font-size: 3rem;
+      color: #ffd166;
+      margin: 25px 0;
+      font-weight: bold;
+    }
+
+    .testimonial {
+      font-style: italic;
+    }
+
+    .testimonial strong {
+      display: block;
+      margin-top: 18px;
+      color: #102542;
+      font-style: normal;
+    }
+
+    .booking-container {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .booking-card {
+      background: white;
+      padding: 45px;
+      border-radius: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 15px;
+      border-radius: 12px;
+      border: 1px solid #d1d5db;
+      margin-top: 8px;
+      margin-bottom: 20px;
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .socials a {
+      background: #102542;
+      color: white;
+      padding: 14px 20px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #102542;
+      color: white;
+      text-align: center;
+      padding: 30px;
+      margin-top: 50px;
+    }
+
+    .lang {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .hero-text h1 { font-size: 2.3rem; }
+    }
+
+  </style>
+</head>
+
+<body>
+
+<!-- ═══════════════════════════════════════════
+     HEADER
+════════════════════════════════════════════ -->
+<header>
+  <div class="header-container">
+
+    <div class="logo">
+      <img src="https://flagcdn.com/w40/us.png" style="height:28px; border-radius:4px; vertical-align:middle;">
+      <img src="https://flagcdn.com/w40/gb.png" style="height:28px; border-radius:4px; vertical-align:middle; margin-left:8px;">
+    </div>
+
+    <nav>
+      <ul>
+        <li>
+          <a href="#courses" class="lang fr">Cours</a>
+          <a href="#courses" class="lang en">Courses</a>
+        </li>
+        <li>
+          <a href="#pricing" class="lang fr">Tarif</a>
+          <a href="#pricing" class="lang en">Pricing</a>
+        </li>
+        <li>
+          <a href="#booking" class="lang fr">Réservation</a>
+          <a href="#booking" class="lang en">Booking</a>
+        </li>
+        <li>
+          <a href="#testimonials" class="lang fr">Témoignages</a>
+          <a href="#testimonials" class="lang en">Testimonials</a>
+        </li>
+        <li>
+          <a href="#teachers" class="lang fr">À propos des professeurs</a>
+          <a href="#teachers" class="lang en">About Teachers</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="lang-switch">
+      <button onclick="setLanguage('fr')">FR</button>
+      <button onclick="setLanguage('en')">EN</button>
+    </div>
+
+  </div>
+</header>
+
+
+<!-- ═══════════════════════════════════════════
+     HERO
+════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-container">
+
+    <div class="hero-text">
+      <h1 class="lang fr">Apprenez l'anglais avec confiance et fluidité</h1>
+      <h1 class="lang en">Learn English with Confidence and Fluency</h1>
+
+      <p class="lang fr">
+        Des cours modernes, interactifs et personnalisés
+        pour améliorer rapidement votre anglais oral,
+        votre confiance et votre fluidité.
+      </p>
+      <p class="lang en">
+        Modern, interactive and personalized lessons
+        to quickly improve your spoken English,
+        confidence and fluency.
+      </p>
+
+      <a href="#booking" class="btn btn-primary lang fr">Réserver un cours d'essai — sans engagement</a>
+      <a href="#booking" class="btn btn-primary lang en">Book a Trial Lesson — No Commitment</a>
+
+      <div class="quick-links">
+        <a href="https://wa.me/22669081661" target="_blank">WhatsApp</a>
+        <a href="https://www.tiktok.com/@speakenglishwithpaly?_r=1&_t=ZN-96QSBDrl6Os" target="_blank">TikTok</a>
+        <a href="https://www.linkedin.com/in/paligwendé-gwladys-boema-823376372" target="_blank">LinkedIn</a>
+        <a href="mailto:helloteacherpaly@gmail.com">Email</a>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.15); border-radius:22px; padding:20px;">
+
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;">
+          <div style="width:12px; height:12px; border-radius:50%; background:#ef4444;"></div>
+          <div style="width:12px; height:12px; border-radius:50%; background:#fbbf24;"></div>
+          <div style="width:12px; height:12px; border-radius:50%; background:#22c55e;"></div>
+          <span style="margin-left:8px; color:rgba(255,255,255,0.7); font-size:0.85rem; font-weight:bold;">
+            Google Meet — Online English Lessons
+          </span>
+        </div>
+
+        <div style="background:#1a3a5c; border-radius:14px; padding:16px; text-align:center; border:2px solid #ffd166; margin-bottom:12px;">
+          <div style="width:64px; height:64px; border-radius:50%; background:linear-gradient(135deg,#ffd166,#f59e0b); margin:0 auto 10px; display:flex; align-items:center; justify-content:center; font-size:1.6rem; border:3px solid #ffd166;">👩‍🏫</div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:8px;">
+          <div style="background:#0f2035; border-radius:10px; padding:14px; text-align:center;">
+            <div style="color:#ffd166; font-weight:bold; font-size:0.9rem;">Afrique</div>
+          </div>
+          <div style="background:#0f2035; border-radius:10px; padding:14px; text-align:center;">
+            <div style="color:#ffd166; font-weight:bold; font-size:0.9rem;">Europe</div>
+          </div>
+          <div style="background:#0f2035; border-radius:10px; padding:14px; text-align:center;">
+            <div style="color:#ffd166; font-weight:bold; font-size:0.9rem;">Amérique</div>
+          </div>
+          <div style="background:#0f2035; border-radius:10px; padding:14px; text-align:center;">
+            <div style="color:#ffd166; font-weight:bold; font-size:0.9rem;">Asie</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     COURSES
+════════════════════════════════════════════ -->
+<section id="courses">
+
+  <h2 class="lang fr">Nos Offres de Coaching</h2>
+  <p class="lang fr" style="text-align:center; margin-top:-30px; margin-bottom:40px; color:#6b7280;">
+    Il est possible de combiner le coaching individuel et le coaching de groupe en même temps.<br>
+    Ces tarifs sont des prix de positionnement. Des réductions ou ajustements peuvent être discutés selon votre situation. N'hésitez pas à nous contacter
+  </p>
+
+  <h2 class="lang en">Our Coaching Offers</h2>
+  <p class="lang en" style="text-align:center; margin-top:-30px; margin-bottom:40px; color:#6b7280;">
+    You can combine individual coaching and group coaching at the same time.<br>
+    These are positioning prices. Discounts or adjustments can be discussed based on your situation. Feel free to contact us.
+  </p>
+
+  <div class="grid">
+
+    <div class="card" style="border-top:4px solid #22c55e;">
+      <h3 class="lang fr" style="color:#22c55e; margin-bottom:6px;">Coaching de Groupe</h3>
+      <h3 class="lang en" style="color:#22c55e; margin-bottom:6px;">Group Coaching</h3>
+      <div style="font-size:1.4rem; font-weight:bold; color:#102542; margin-bottom:16px;">15 000 FCFA<span style="font-size:0.9rem; font-weight:normal;"> / mois</span></div>
+      <ul class="lang fr">
+        <li>3 séances / semaine</li>
+        <li>Mardi · Mercredi · Jeudi</li>
+        <li>20h00 – 21h30 GMT</li>
+        <li>Expression orale</li>
+        <li>Conversations sur des sujets d'actualité</li>
+        <li>Vocabulaire et expressions naturelles</li>
+        <li>Pratique en groupe</li>
+      </ul>
+      <ul class="lang en">
+        <li>3 sessions / week</li>
+        <li>Tuesday · Wednesday · Thursday</li>
+        <li>8:00 PM – 9:30 PM GMT</li>
+        <li>Speaking practice</li>
+        <li>Conversations on current topics</li>
+        <li>Vocabulary &amp; natural expressions</li>
+        <li>Group practice</li>
+      </ul>
+      <a href="#booking" class="btn btn-primary lang fr" style="margin-top:20px; display:inline-block;">Réserver</a>
+      <a href="#booking" class="btn btn-primary lang en" style="margin-top:20px; display:inline-block;">Book Now</a>
+    </div>
+
+    <div class="card" style="border-top:4px solid #ffd166;">
+      <h3 class="lang fr" style="color:#b45309; margin-bottom:6px;">Coaching Individuel</h3>
+      <h3 class="lang en" style="color:#b45309; margin-bottom:6px;">Individual Coaching</h3>
+      <div style="font-size:1.4rem; font-weight:bold; color:#102542; margin-bottom:16px;">45 000 FCFA<span style="font-size:0.9rem; font-weight:normal;"> / mois</span></div>
+      <ul class="lang fr">
+        <li>2 séances individuelles / semaine</li>
+        <li>Expression orale</li>
+        <li>Grammaire</li>
+        <li>Listening (audio)</li>
+        <li>Prononciation</li>
+        <li>Conversations réelles</li>
+        <li>Correction des erreurs</li>
+        <li>80% pratique orale / 20% grammaire</li>
+      </ul>
+      <ul class="lang en">
+        <li>2 individual sessions / week</li>
+        <li>Speaking practice</li>
+        <li>Grammar</li>
+        <li>Listening (audio)</li>
+        <li>Pronunciation</li>
+        <li>Real conversations</li>
+        <li>Error correction</li>
+        <li>80% speaking / 20% grammar</li>
+      </ul>
+      <a href="#booking" class="btn btn-primary lang fr" style="margin-top:20px; display:inline-block;">Réserver</a>
+      <a href="#booking" class="btn btn-primary lang en" style="margin-top:20px; display:inline-block;">Book Now</a>
+    </div>
+
+    <div class="card" style="border-top:4px solid #8b5cf6;">
+      <h3 class="lang fr" style="color:#8b5cf6; margin-bottom:6px;">Coaching Individuel Intensif</h3>
+      <h3 class="lang en" style="color:#8b5cf6; margin-bottom:6px;">Intensive Individual Coaching</h3>
+      <div style="font-size:1.4rem; font-weight:bold; color:#102542; margin-bottom:16px;">65 000 FCFA<span style="font-size:0.9rem; font-weight:normal;"> / mois</span></div>
+      <ul class="lang fr">
+        <li>3 séances individuelles / semaine</li>
+        <li>Expression orale intensive</li>
+        <li>Grammaire avancée</li>
+        <li>Listening intensif</li>
+        <li>Prononciation &amp; accent</li>
+        <li>Simulations de situations réelles</li>
+        <li>Correction détaillée</li>
+        <li>Progression accélérée</li>
+      </ul>
+      <ul class="lang en">
+        <li>3 individual sessions / week</li>
+        <li>Intensive speaking practice</li>
+        <li>Advanced grammar</li>
+        <li>Intensive listening</li>
+        <li>Pronunciation &amp; accent</li>
+        <li>Real-life situation simulations</li>
+        <li>Detailed correction</li>
+        <li>Accelerated progress</li>
+      </ul>
+      <a href="#booking" class="btn btn-primary lang fr" style="margin-top:20px; display:inline-block;">Réserver</a>
+      <a href="#booking" class="btn btn-primary lang en" style="margin-top:20px; display:inline-block;">Book Now</a>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     PRICING
+════════════════════════════════════════════ -->
+<section id="pricing">
+
+  <h2 class="lang fr">Tarifs</h2>
+  <h2 class="lang en">Pricing</h2>
+
+  <div style="display:flex; justify-content:center; flex-wrap:wrap; gap:15px; margin-bottom:40px;">
+    <button onclick="showPricing('groupe')"
+      style="background:#22c55e; color:white; border:none; padding:14px 24px; border-radius:14px; font-size:1rem; font-weight:bold; cursor:pointer;">
+      <span class="lang fr">Groupe</span><span class="lang en">Group</span>
+    </button>
+    <button onclick="showPricing('individuel')"
+      style="background:#ffd166; color:#102542; border:none; padding:14px 24px; border-radius:14px; font-size:1rem; font-weight:bold; cursor:pointer;">
+      <span class="lang fr">Individuel</span><span class="lang en">Individual</span>
+    </button>
+    <button onclick="showPricing('intensif')"
+      style="background:#8b5cf6; color:white; border:none; padding:14px 24px; border-radius:14px; font-size:1rem; font-weight:bold; cursor:pointer;">
+      <span class="lang fr">Individuel Intensif</span><span class="lang en">Intensive Individual</span>
+    </button>
+  </div>
+
+  <div id="price-groupe" class="price-box" style="display:none; border-top:6px solid #22c55e;">
+    <p class="lang fr">Coaching de Groupe</p>
+    <p class="lang en">Group Coaching</p>
+    <div class="price">15 000 FCFA <span style="font-size:1.2rem;">/ mois</span></div>
+    <p class="lang fr">Mardi · Mercredi · Jeudi — 20h00 à 21h30 GMT</p>
+    <p class="lang en">Tuesday · Wednesday · Thursday — 8:00 PM to 9:30 PM GMT</p>
+    <br>
+    <a href="#booking" class="btn btn-primary lang fr">Réserver cette offre</a>
+    <a href="#booking" class="btn btn-primary lang en">Book this offer</a>
+  </div>
+
+  <div id="price-individuel" class="price-box" style="display:none; border-top:6px solid #ffd166;">
+    <p class="lang fr">Coaching Individuel</p>
+    <p class="lang en">Individual Coaching</p>
+    <div class="price">45 000 FCFA <span style="font-size:1.2rem;">/ mois</span></div>
+    <p class="lang fr">2 séances individuelles par semaine · Programme 100% personnalisé</p>
+    <p class="lang en">2 individual sessions per week · 100% personalized program</p>
+    <br>
+    <a href="#booking" class="btn btn-primary lang fr">Réserver cette offre</a>
+    <a href="#booking" class="btn btn-primary lang en">Book this offer</a>
+  </div>
+
+  <div id="price-intensif" class="price-box" style="display:none; border-top:6px solid #8b5cf6;">
+    <p class="lang fr">Coaching Individuel Intensif</p>
+    <p class="lang en">Intensive Individual Coaching</p>
+    <div class="price">65 000 FCFA <span style="font-size:1.2rem;">/ mois</span></div>
+    <p class="lang fr">3 séances individuelles par semaine · Progression accélérée</p>
+    <p class="lang en">3 individual sessions per week · Accelerated progress</p>
+    <br>
+    <a href="#booking" class="btn btn-primary lang fr">Réserver cette offre</a>
+    <a href="#booking" class="btn btn-primary lang en">Book this offer</a>
+  </div>
+
+  <div style="max-width:750px; margin:30px auto 0; background:#f0fdf4; border-left:4px solid #22c55e; border-radius:12px; padding:20px 24px; color:#166534; font-size:0.9rem;">
+    <p class="lang fr">
+      <strong>Note :</strong> Ces tarifs sont des prix de positionnement. Des réductions ou ajustements peuvent être discutés selon votre situation. N'hésitez pas à nous contacter.
+    </p>
+    <p class="lang en">
+      <strong>Note:</strong> These are positioning prices. Discounts or adjustments can be discussed based on your situation. Feel free to contact us.
+    </p>
+  </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     TESTIMONIALS
+════════════════════════════════════════════ -->
+<section id="testimonials">
+
+  <h2 class="lang fr">Témoignages</h2>
+  <h2 class="lang en">Testimonials</h2>
+
+  <!-- Onglets -->
+  <div style="display:flex; justify-content:center; flex-wrap:wrap; gap:10px; margin-bottom:40px;">
+    <button onclick="showTestimonial(1)" id="tab-1"
+      style="background:#102542; color:white; border:none; padding:12px 22px; border-radius:12px; font-weight:bold; cursor:pointer;">
+      1
+    </button>
+    <button onclick="showTestimonial(2)" id="tab-2"
+      style="background:#e5e7eb; color:#102542; border:none; padding:12px 22px; border-radius:12px; font-weight:bold; cursor:pointer;">
+      2
+    </button>
+    <button onclick="showTestimonial(3)" id="tab-3"
+      style="background:#e5e7eb; color:#102542; border:none; padding:12px 22px; border-radius:12px; font-weight:bold; cursor:pointer;">
+      3
+    </button>
+    <button onclick="showTestimonial(4)" id="tab-4"
+      style="background:#e5e7eb; color:#102542; border:none; padding:12px 22px; border-radius:12px; font-weight:bold; cursor:pointer;">
+      4
+    </button>
+  </div>
+
+  <!-- TÉMOIGNAGE 1 -->
+  <div id="testi-1" class="card testimonial" style="max-width:750px; margin:auto;">
+    <p class="lang fr">
+      "Je suis étudiante en Master 2 en France. J'ai commencé les cours avec Gwladys il y a 11 semaines et mon niveau s'est beaucoup amélioré. J'arrive maintenant à m'exprimer librement. Je suis à la fois un coaching individuel et un coaching de groupe. Ce que j'apprécie le plus, c'est que les cours sont axés sur la communication, l'écoute et la correction de la prononciation."
+    </p>
+    <p class="lang en">
+      "I am a Master 2 student in France. I started lessons with Gwladys 11 weeks ago and my level has improved a lot. I can now express myself freely. I follow both individual and group coaching. What I appreciate the most is that the lessons are focused on communication, listening and pronunciation correction."
+    </p>
+    <strong>— Fatoumata Diallo, Étudiante M2, France</strong>
+  </div>
+
+  <!-- TÉMOIGNAGE 2 -->
+  <div id="testi-2" class="card testimonial" style="max-width:750px; margin:auto; display:none;">
+    <p class="lang fr">
+      "Les conversations et les sujets d'actualité rendent les cours très intéressants."
+    </p>
+    <p class="lang en">
+      "The conversations and current topics make the lessons very interesting."
+    </p>
+    <strong>— Student, Canada</strong>
+  </div>
+
+  <!-- TÉMOIGNAGE 3 -->
+  <div id="testi-3" class="card testimonial" style="max-width:750px; margin:auto; display:none;">
+    <p class="lang fr">
+      "Une excellente méthode pour progresser rapidement à l'oral."
+    </p>
+    <p class="lang en">
+      "An excellent method to improve speaking skills quickly."
+    </p>
+    <strong>— Student, USA</strong>
+  </div>
+
+  <!-- TÉMOIGNAGE 4 — à compléter -->
+  <div id="testi-4" class="card testimonial" style="max-width:750px; margin:auto; display:none;">
+    <p class="lang fr">
+      "..."
+    </p>
+    <p class="lang en">
+      "..."
+    </p>
+    <strong>— </strong>
+  </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     BOOKING
+════════════════════════════════════════════ -->
+<section id="booking">
+
+  <h2 class="lang fr">Réserver votre cours d'essai</h2>
+  <h2 class="lang en">Book Your Trial Lesson</h2>
+
+  <div class="booking-container">
+    <div class="booking-card">
+
+      <p class="lang fr">
+        Vous pouvez réserver votre cours :
+        par email, en remplissant directement ce formulaire,
+        ou via WhatsApp, TikTok ou LinkedIn en nous laissant un message.
+        <br><br>
+        Vous recevrez une confirmation dans les prochaines 24h,
+        soit avec validation du rendez-vous,
+        soit avec des créneaux disponibles proposés.
+      </p>
+      <p class="lang en">
+        You can book your lesson:
+        by email, by filling out this form directly,
+        or through WhatsApp, TikTok or LinkedIn by sending us a message.
+        <br><br>
+        You will receive a confirmation within the next 24 hours,
+        either with an accepted booking
+        or alternative available time slots.
+      </p>
+
+      <div class="socials">
+        <a href="https://wa.me/22669081661" target="_blank">WhatsApp</a>
+        <a href="https://www.tiktok.com/@speakenglishwithpaly?_r=1&_t=ZN-96QSBDrl6Os" target="_blank">TikTok</a>
+        <a href="https://www.linkedin.com/in/paligwendé-gwladys-boema-823376372" target="_blank">LinkedIn</a>
+        <a href="mailto:helloteacherpaly@gmail.com">Email</a>
+      </div>
+
+      <br><br>
+
+      <form action="https://formsubmit.co/helloteacherpaly@gmail.com" method="POST">
+
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_subject" value="Nouvelle réservation de cours d'anglais">
+
+        <label class="lang fr">Type de coaching souhaité</label>
+        <label class="lang en">Coaching Type</label>
+        <div style="display:flex; flex-wrap:wrap; gap:12px; margin-bottom:20px; margin-top:8px;">
+          <label style="cursor:pointer; display:flex; align-items:center; gap:8px; background:#f0fdf4; border:2px solid #22c55e; border-radius:10px; padding:10px 16px; font-weight:bold;">
+            <input type="radio" name="Coaching" value="Groupe" required>
+            <span class="lang fr">Groupe</span><span class="lang en">Group</span>
+          </label>
+          <label style="cursor:pointer; display:flex; align-items:center; gap:8px; background:#fffbeb; border:2px solid #ffd166; border-radius:10px; padding:10px 16px; font-weight:bold;">
+            <input type="radio" name="Coaching" value="Individuel">
+            <span class="lang fr">Individuel</span><span class="lang en">Individual</span>
+          </label>
+          <label style="cursor:pointer; display:flex; align-items:center; gap:8px; background:#f5f3ff; border:2px solid #8b5cf6; border-radius:10px; padding:10px 16px; font-weight:bold;">
+            <input type="radio" name="Coaching" value="Individuel Intensif">
+            <span class="lang fr">Individuel Intensif</span><span class="lang en">Intensive</span>
+          </label>
+        </div>
+
+        <label class="lang fr">Nom complet</label>
+        <label class="lang en">Full Name</label>
+        <input type="text" name="Nom" required>
+
+        <label>Email</label>
+        <input type="email" name="Email" required>
+
+        <label class="lang fr">Numéro WhatsApp</label>
+        <label class="lang en">WhatsApp Number</label>
+        <input type="text" name="Telephone">
+
+        <label class="lang fr">Niveau actuel</label>
+        <label class="lang en">Current Level</label>
+        <select name="Niveau">
+          <option>Débutant / Beginner</option>
+          <option>Intermédiaire / Intermediate</option>
+          <option>Avancé / Advanced</option>
+        </select>
+
+        <label class="lang fr">Date souhaitée</label>
+        <label class="lang en">Preferred Date</label>
+        <input type="date" name="Date">
+
+        <label class="lang fr">Heure souhaitée</label>
+        <label class="lang en">Preferred Time</label>
+        <input type="time" name="Heure">
+
+        <label class="lang fr">Votre objectif principal</label>
+        <label class="lang en">Your Main Goal</label>
+        <textarea rows="5" name="Message"></textarea>
+
+        <button type="submit" class="btn btn-primary lang fr">Réserver maintenant</button>
+        <button type="submit" class="btn btn-primary lang en">Book Now</button>
+
+      </form>
+
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     ABOUT TEACHERS
+════════════════════════════════════════════ -->
+<section id="teachers">
+
+  <h2 class="lang fr">À propos des professeurs</h2>
+  <h2 class="lang en">About the Teachers</h2>
+
+  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:40px;">
+
+    <div class="card" style="text-align:center;">
+      <img src="gladys.jpeg" alt="GWLADYS BOEMA"
+        style="width:160px; height:160px; object-fit:cover; border-radius:50%; margin-bottom:20px; box-shadow:0 8px 25px rgba(0,0,0,0.15);">
+      <h3 style="margin-bottom:14px; font-size:1.2rem;">GWLADYS BOEMA</h3>
+      <p class="lang fr" style="text-align:left;">
+        Coach d'anglais en ligne spécialisée dans l'accompagnement personnalisé,
+        j'aide les étudiants, professionnels et débutants à améliorer leur anglais
+        grâce à une méthode interactive centrée principalement sur l'expression orale,
+        la fluidité et la communication en situation réelle.
+      </p>
+      <p class="lang en" style="text-align:left;">
+        Online English coach specialized in personalized coaching,
+        I help students, professionals and beginners improve their English
+        through an interactive method focused mainly on speaking,
+        fluency and real-life communication.
+      </p>
+    </div>
+
+    <div class="card" style="text-align:center;">
+      <img src="francy.png" alt="François BAMOGO"
+        style="width:160px; height:160px; object-fit:cover; border-radius:50%; margin-bottom:20px; box-shadow:0 8px 25px rgba(0,0,0,0.15);">
+      <h3 style="margin-bottom:14px; font-size:1.2rem;">François BAMOGO</h3>
+      <p class="lang fr" style="text-align:left;">
+        Collaborateur et animateur des cours en groupe.
+        Il accompagne les apprenants à travers des discussions sur des sujets d'actualité,
+        des échanges interactifs et des exercices oraux.
+      </p>
+      <p class="lang en" style="text-align:left;">
+        Collaborator and group lesson instructor.
+        He helps learners through discussions on current topics,
+        interactive exchanges and speaking exercises.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════ -->
+<footer>
+  <p class="lang fr">© 2026 — Cours d'anglais en ligne</p>
+  <p class="lang en">© 2026 — Online English Lessons</p>
+</footer>
+
+
+<!-- ═══════════════════════════════════════════
+     SCRIPT
+════════════════════════════════════════════ -->
+<script>
+
+  function setLanguage(lang) {
+    document.querySelectorAll('.lang').forEach(el => {
+      el.style.display = el.classList.contains(lang) ? 'block' : 'none';
+    });
+    localStorage.setItem('lang', lang);
+  }
+
+  function showTestimonial(n) {
+    [1,2,3,4].forEach(i => {
+      document.getElementById('testi-' + i).style.display = 'none';
+      document.getElementById('tab-' + i).style.background = '#e5e7eb';
+      document.getElementById('tab-' + i).style.color = '#102542';
+    });
+    document.getElementById('testi-' + n).style.display = 'block';
+    document.getElementById('tab-' + n).style.background = '#102542';
+    document.getElementById('tab-' + n).style.color = 'white';
+  }
+
+  function showPricing(type) {
+    ['groupe','individuel','intensif'].forEach(t => {
+      document.getElementById('price-' + t).style.display = 'none';
+    });
+    document.getElementById('price-' + type).style.display = 'block';
+  }
+
+  const savedLang = localStorage.getItem('lang') || 'fr';
+  setLanguage(savedLang);
+
+</script>
+
+</body>
+</html>
